@@ -2,20 +2,25 @@ package it.appacademy.convertitoredivalute;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-// TODO 1: Dichiarare le View con le quali si lavorerà
 
+EditText moneyEuro;
+TextView moneyDollari;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // TODO 2: Collegare le Views
+        moneyEuro = (EditText)findViewById(R.id.moneyEuro);
 
+        moneyDollari = (TextView)findViewById(R.id.moneyDollari);
 
 
     }
@@ -24,22 +29,23 @@ public class MainActivity extends AppCompatActivity {
 
     public void convertiValuta(View view) {
 
-        // TODO 3. Log Button Click
+        Log.d("convertiValuta", "Click bottone Converti");
 
+        String soldieuro = moneyEuro.getText().toString();
 
-        // TODO 4. Leggere euro e Log
+        Log.d("convertiValuta", "Lettura euro");
 
+        double euro = Integer.parseInt(soldieuro);
 
-        // TODO 5. Trasformare gli euro letti da String a Double
-
-
-        // TODO 6. Convertire Euro in dollari
         // dollari = euro * 1.18213;
 
+        double dollari = euro * 1.18213;
 
+        moneyDollari.setText(Double.toString(dollari));
 
-        // TODO 7. Scrivere il valore espresso in Dollari nella TextView
+        String soldidollari = moneyDollari.getText().toString();
 
+        Log.d("convertiValuta", soldieuro + " Euro sono " + soldidollari + " Dollari!");
 
     }
 }
